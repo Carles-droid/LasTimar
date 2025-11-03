@@ -672,9 +672,9 @@ p {
   color: var(--colorSecundario);
   text-transform: uppercase;
   letter-spacing: 1.5px;
+  background-color: var(--colorPrimario);
   opacity: 0.8;
   margin-bottom: 40px;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
 }
 
 /* Grid responsive: 2 columnas en desktop, 1 en móvil */
@@ -928,5 +928,116 @@ p {
   /* === EXCEPCIÓN: MOSTRAR HERO SOLO EN INDEX === */
   body.index .hero {
     display: block;
+  }
+}
+
+/* =================================== */
+/* === SECCIÓN MANTENIMIENTO – ESTILO GÓTICO === */
+/* =================================== */
+
+.mantenimiento-section {
+  padding: 80px 20px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.7);
+  border: 3px solid var(--colorSecundario);
+  border-radius: 15px;
+  margin: 4rem auto;
+  max-width: 900px;
+  box-shadow: 0 0 25px rgba(133, 4, 111, 0.3);
+  position: relative;
+  overflow: hidden;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mantenimiento-title {
+  font-family: var(--fuenteTexto);
+  font-size: 3.2em;
+  color: var(--colorSecundario);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-bottom: 20px;
+  text-shadow: 
+    0 0 15px var(--colorTexto),
+    0 0 30px rgba(133, 4, 111, 0.6),
+    3px 3px 0 #000,
+    -2px -2px 0 #000;
+  animation: flicker 3s infinite alternate;
+  position: relative;
+  z-index: 2;
+}
+
+.mantenimiento-subtitle {
+  font-family: var(--fuentePagina);
+  font-size: 1.3em;
+  color: var(--colorSecundario);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0.85;
+  margin-bottom: 30px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+.mantenimiento-icon {
+  font-size: 4rem;
+  color: var(--colorSecundario);
+  animation: pulse 2s ease-in-out infinite;
+  filter: drop-shadow(0 0 15px var(--colorSecundario));
+}
+
+/* ANIMACIÓN: Parpadeo de neón */
+@keyframes flicker {
+  0%, 100% { opacity: 1; text-shadow: 0 0 15px var(--colorTexto), 0 0 30px rgba(133, 4, 111, 0.6); }
+  50% { opacity: 0.9; text-shadow: 0 0 8px var(--colorTexto), 0 0 15px rgba(133, 4, 111, 0.3); }
+}
+
+/* ANIMACIÓN: Pulso del ícono */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+/* Rayas sutiles de fondo */
+.mantenimiento-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0px,
+    transparent calc(var(--ancho-raya) - 3px),
+    rgba(255, 255, 255, 0.07) calc(var(--ancho-raya) - 3px),
+    rgba(255, 255, 255, 0.07) var(--ancho-raya)
+  );
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* =================================== */
+/* === MEDIA QUERY: MÓVIL (≤768px) === */
+/* =================================== */
+@media (max-width: 768px) {
+  .mantenimiento-section {
+    padding: 50px 15px;
+    margin: 3rem 1rem;
+    border-width: 2px;
+    min-height: 50vh;
+  }
+
+  .mantenimiento-title {
+    font-size: 2.3em;
+    letter-spacing: 2px;
+  }
+
+  .mantenimiento-subtitle {
+    font-size: 1.1em;
+    letter-spacing: 1.5px;
+  }
+
+  .mantenimiento-icon {
+    font-size: 3rem;
   }
 }
