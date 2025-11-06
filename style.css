@@ -980,13 +980,6 @@ p {
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
 }
 
-.mantenimiento-icon {
-  font-size: 4rem;
-  color: var(--colorSecundario);
-  animation: pulse 2s ease-in-out infinite;
-  filter: drop-shadow(0 0 15px var(--colorSecundario));
-}
-
 /* ANIMACIÓN: Parpadeo de neón */
 @keyframes flicker {
   0%, 100% { opacity: 1; text-shadow: 0 0 15px var(--colorTexto), 0 0 30px rgba(133, 4, 111, 0.6); }
@@ -1039,5 +1032,59 @@ p {
 
   .mantenimiento-icon {
     font-size: 3rem;
+  }
+}
+
+/* ===== BOTÓN VOLVER ARRIBA - Las Timar Edition ===== */
+#btn-volver-arriba {
+  position: fixed;
+  bottom: 100px;                    /* justo encima del footer (footer tiene ~80px de alto + padding) */
+  right: 20px;
+  width: 52px;
+  height: 52px;
+  background: var(--colorPrimario);
+  color: var(--colorSecundario);
+  border: 2px solid var(--colorSecundario);
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 0 15px rgba(190, 183, 30, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--fuenteTexto);
+  backdrop-filter: blur(4px);
+}
+
+#btn-volver-arriba:hover {
+  background: var(--colorSecundario);
+  color: var(--colorPrimario);
+  transform: translateY(-6px) scale(1.1);
+  box-shadow: 0 0 25px rgba(190, 183, 30, 0.6);
+  border-color: var(--colorTexto);
+}
+
+/* Mostrar cuando se hace scroll */
+#btn-volver-arriba.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* MÓVIL */
+@media (max-width: 768px) {
+  #btn-volver-arriba {
+    width: 46px;
+    height: 46px;
+    right: 15px;
+    bottom: 90px;
+  }
+  #btn-volver-arriba svg {
+    width: 19px;
+    height: 19px;
   }
 }
