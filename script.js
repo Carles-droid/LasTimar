@@ -16,3 +16,11 @@
       behavior: 'smooth'
     });
   });
+
+  // === EVITAR SALTO EN "LEER MÁS" ===
+document.querySelectorAll('.blog-readmore').forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault(); // ← Esto detiene el salto al top
+    // Aquí puedes agregar más tarde la función de expandir
+  });
+});

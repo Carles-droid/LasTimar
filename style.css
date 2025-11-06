@@ -133,7 +133,7 @@ p {
 
 .hero {
   width: 100%;
-  height: 80vh;
+  height: 95vh;
   overflow: hidden;
   position: relative;
   margin-top: -3px;
@@ -145,7 +145,7 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 30%;
+  object-position: 50% 40%;
   display: block;
   filter: brightness(0.7) contrast(1.3) sepia(0.2);
   animation: fadeIn 1.5s ease-out forwards;
@@ -175,18 +175,6 @@ p {
 @media (max-width: 768px) {
   .hero-img {
     display: none; /* ¡Ocultamos la imagen de escritorio! */
-  }
-
-  .hero {
-    background-image: url('./img/lasTimar5.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-
-  /* Opcional: ajustar altura en móvil */
-  .hero {
-    height: 140vh; /* o 100vh, según prefieras */
   }
 }
 
@@ -269,6 +257,7 @@ p {
   overflow: hidden;
   border-top: 2px solid var(--colorSecundario);
   z-index: 1;
+  margin-top: 25px;
 }
 /* Texto con toque púrpura */
 .footer p {
@@ -353,7 +342,7 @@ p {
   .nav-links a:hover {
     color: var(--colorTexto);
     background: rgba(133, 4, 111, 0.15);
-    border-bottom-color: var(--colorTexto);
+    /* border-bottom-color: var(--colorTexto); */
   }
 
   .nav-links a::after {
@@ -1086,5 +1075,24 @@ p {
   #btn-volver-arriba svg {
     width: 19px;
     height: 19px;
+  }
+}
+
+/* HERO RESPONSIVE - MÓVIL Y ESCRITORIO */
+.hero {
+  width: 100%;
+  overflow: hidden;
+  margin: 0 auto;
+}
+/* Ajuste para móviles */
+@media (max-width: 768px) {
+  .hero {
+    margin-top: 20px; /* espacio después del navbar */
+  }
+  
+  .hero-img {
+    min-height: 40vh; /* altura mínima en móvil */
+    object-fit: cover;
+    object-position: top center; /* enfoca la parte superior si es necesario */
   }
 }
