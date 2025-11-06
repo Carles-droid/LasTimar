@@ -10,7 +10,6 @@
   --textShadow: 0 0 12px var(--colorTexto);
 }
 
-/* === RESETEO === */
 * {
   margin: 0;
   padding: 0;
@@ -26,7 +25,6 @@ body {
   /* padding-top: 80px; */
 }
 
-/* === RAYAS DE FONDO === */
 .burton-stripes {
     position: fixed;
     top: 0; left: 0;
@@ -44,7 +42,6 @@ body {
     pointer-events: none;
 }
 
-/* === BARRA DE NAVEGACIÓN === */
 .navbar {
   /* position: fixed; */
   top: 0;
@@ -80,7 +77,6 @@ body {
   position: relative;
 }
 
-/* Efecto hover gótico */
 .nav-links a:hover {
   color: var(--colorTexto);
   text-shadow: 0 0 10px var(--colorTexto);
@@ -140,7 +136,7 @@ p {
   z-index: 1;
 }
 
-/* IMAGEN DE ESCRITORIO: solo visible en pantallas grandes */
+/* IMAGEN DE ESCRITORIO: solo visible en desktop */
 .hero-img {
   width: 100%;
   height: 100%;
@@ -156,7 +152,7 @@ p {
   to { opacity: 1; }
 }
 
-/* Overlay gótico */
+/* Overlay */
 .hero::before {
   content: '';
   position: absolute;
@@ -169,13 +165,6 @@ p {
   );
   pointer-events: none;
   z-index: 2;
-}
-
-/* === MÓVIL: OCULTAR <img> Y MOSTRAR FONDO === */
-@media (max-width: 768px) {
-  .hero-img {
-    display: none; /* ¡Ocultamos la imagen de escritorio! */
-  }
 }
 
 /* === SECCIÓN DE TEXTO HERO === */
@@ -227,7 +216,7 @@ p {
   padding-bottom: 20px;
 }
 
-/* === RAYAS SUTILES DE FONDO === */
+/* === RAYAS FONDO === */
 .hero-text-section::before {
   content: '';
   position: absolute;
@@ -268,21 +257,20 @@ p {
     0 1px 2px var(--colorPrimario);
   transition: all 0.4s ease;
 }
-/* Efecto hover sutil */
 .footer p:hover {
   color: var(--colorTexto);
   text-shadow: 
     0 0 15px var(--colorTexto),
     0 0 25px rgba(133, 4, 111, 0.5);
 }
-/* Símbolo ® más pequeño y alineado */
+
 .footer sup {
   font-size: 0.65em;
   vertical-align: super;
   margin-left: 2px;
   opacity: 0.8;
 }
-/* === RAYAS DE FONDO EN EL FOOTER (sutiles) === */
+
 .footer::before {
   content: '';
   position: absolute;
@@ -373,7 +361,7 @@ p {
   }
 }
 
-/* === SECCIÓN TOUR ESPECÍFICA === */
+/* === SECCIÓN === */
 .tour-section {
   padding: 60px 20px;
   text-align: center;
@@ -420,7 +408,7 @@ p {
   max-width: 900px;
   margin: 0 auto;
   border-collapse: collapse;
-  background-color: rgba(0, 0, 0, 0.8); /* Fondo dark */
+  background-color: rgba(0, 0, 0, 0.8); 
   border: 1px solid var(--colorSecundario);
   font-family: var(--fuentePagina);
   color: var(--colorTexto);
@@ -485,10 +473,6 @@ p {
   z-index: -1;
   pointer-events: none;
 }
-
-/* =================================== */
-/* === SECCIÓN MERCH – ESTILOS GÓTICOS === */
-/* =================================== */
 
 .merch-section {
   padding: 60px 20px;
@@ -792,9 +776,6 @@ p {
   pointer-events: none;
 }
 
-/* =================================== */
-/* === MEDIA QUERY: MÓVIL (≤768px) === */
-/* =================================== */
 @media (max-width: 768px) {
   .blog-section {
     padding: 40px 15px;
@@ -835,9 +816,6 @@ p {
   }
 }
 
-/* =================================== */
-/* === MEDIA QUERY: MÓVIL (≤768px) === */
-/* =================================== */
 @media (max-width: 768px) {
   .merch-section {
     padding: 40px 15px;
@@ -908,21 +886,7 @@ p {
   }
 }
 
-/* === EN MÓVIL: OCULTAR HERO EN TODAS LAS PÁGINAS === */
-@media (max-width: 768px) {
-  .hero {
-    display: none;
-  }
-
-  /* === EXCEPCIÓN: MOSTRAR HERO SOLO EN INDEX === */
-  body.index .hero {
-    display: block;
-  }
-}
-
-/* =================================== */
 /* === SECCIÓN MANTENIMIENTO – ESTILO GÓTICO === */
-/* =================================== */
 
 .mantenimiento-section {
   padding: 80px 20px;
@@ -998,9 +962,7 @@ p {
   pointer-events: none;
 }
 
-/* =================================== */
 /* === MEDIA QUERY: MÓVIL (≤768px) === */
-/* =================================== */
 @media (max-width: 768px) {
   .mantenimiento-section {
     padding: 50px 15px;
@@ -1024,7 +986,7 @@ p {
   }
 }
 
-/* ===== BOTÓN VOLVER ARRIBA - Las Timar Edition ===== */
+/* ===== BOTÓN VOLVER ARRIBA ===== */
 #btn-volver-arriba {
   position: fixed;
   bottom: 100px;                    /* justo encima del footer (footer tiene ~80px de alto + padding) */
@@ -1094,5 +1056,47 @@ p {
     min-height: 40vh; /* altura mínima en móvil */
     object-fit: cover;
     object-position: top center; /* enfoca la parte superior si es necesario */
+  }
+}
+/* === OCULTAR HERO EN TODAS LAS PÁGINAS POR DEFECTO === */
+.hero {
+  display: none;
+}
+
+/* === MOSTRAR HERO SOLO EN INDEX.HTML (TODOS LOS DISPOSITIVOS) === */
+body.index .hero {
+  display: block;
+}
+
+/* === ESTILOS DE LA IMAGEN HERO (SIEMPRE VISIBLE EN INDEX) === */
+body.index .hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 40%;
+  display: block;
+  filter: brightness(0.7) contrast(1.3) sepia(0.2);
+  animation: fadeIn 1.5s ease-out forwards;
+  opacity: 0;
+}
+
+/* === MÓVIL: AJUSTES ESPECÍFICOS (pero la imagen SÍ se ve) === */
+@media (max-width: 768px) {
+  body.index .hero {
+    height: 50vh; /* ajusta la altura en móvil */
+    margin-top: 20px;
+  }
+  
+  body.index .hero-img {
+    min-height: 40vh;
+    object-position: center top; /* enfoca lo que quieras */
+    display: block !important; /* fuerza visibilidad */
+  }
+}
+
+/* === DESKTOP: AJUSTES (ya visible por body.index) === */
+@media (min-width: 769px) {
+  body.index .hero {
+    height: 95vh;
   }
 }
