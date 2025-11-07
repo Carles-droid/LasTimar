@@ -872,8 +872,7 @@ p {
 
   .tour-section {
     padding: 40px 10px;
-    margin-left: 15px;
-    margin-right: 15px;
+    margin: 0 auto;
   }
 
   .tour-title {
