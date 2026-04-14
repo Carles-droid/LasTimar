@@ -236,9 +236,9 @@ p {
 /* === FOOTER === */
 .footer {
   background: rgba(0, 0, 0, 0.9);
-  color: var(--colorSecundario); 
+  color: var(--colorSecundario);
   text-align: center;
-  padding: 2rem 1rem;
+  padding: 2.5rem 1rem 1.8rem;
   font-family: var(--fuenteTexto);
   font-size: 1rem;
   letter-spacing: 1.5px;
@@ -247,21 +247,75 @@ p {
   border-top: 2px solid var(--colorSecundario);
   z-index: 1;
   margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.6rem;
 }
-/* Texto con toque púrpura */
-.footer p {
-  margin: 0;
+
+/* === REDES SOCIALES === */
+.footer-social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.4rem;
+  flex-wrap: wrap;
+}
+
+.footer-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
   color: var(--colorSecundario);
-  text-shadow: 
-    0 0 8px rgba(133, 4, 111, 0.3), /* Sombra púrpura suave */
+  border: 1.5px solid rgba(190, 183, 30, 0.35);
+  border-radius: 50%;
+  text-decoration: none;
+  transition: all 0.35s ease;
+  position: relative;
+}
+
+.footer-social-link svg {
+  width: 18px;
+  height: 18px;
+  transition: all 0.35s ease;
+}
+
+.footer-social-link:hover {
+  color: var(--colorPrimario);
+  background: var(--colorSecundario);
+  border-color: var(--colorSecundario);
+  box-shadow:
+    0 0 14px rgba(190, 183, 30, 0.55),
+    0 0 28px rgba(133, 4, 111, 0.35);
+  transform: translateY(-3px) scale(1.08);
+}
+
+/* === COPYRIGHT === */
+.footer-copy {
+  margin: 0;
+  font-family: var(--fuenteTexto);
+  font-size: 0.78rem;
+  letter-spacing: 1.8px;
+  color: var(--colorSecundario);
+  opacity: 0.75;
+  text-transform: uppercase;
+  text-shadow:
+    0 0 8px rgba(133, 4, 111, 0.25),
     0 1px 2px var(--colorPrimario);
   transition: all 0.4s ease;
+  border-top: 1px solid rgba(190, 183, 30, 0.18);
+  padding-top: 1.2rem;
+  width: 100%;
 }
-.footer p:hover {
+
+.footer-copy:hover {
+  opacity: 1;
   color: var(--colorTexto);
-  text-shadow: 
-    0 0 15px var(--colorTexto),
-    0 0 25px rgba(133, 4, 111, 0.5);
+  text-shadow:
+    0 0 12px var(--colorTexto),
+    0 0 22px rgba(133, 4, 111, 0.45);
 }
 
 .footer sup {
@@ -286,6 +340,33 @@ p {
   );
   z-index: -1;
   pointer-events: none;
+}
+
+/* === FOOTER RESPONSIVE === */
+@media (max-width: 768px) {
+  .footer {
+    padding: 2rem 1.2rem 1.5rem;
+    gap: 1.3rem;
+  }
+
+  .footer-social {
+    gap: 1rem;
+  }
+
+  .footer-social-link {
+    width: 36px;
+    height: 36px;
+  }
+
+  .footer-social-link svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .footer-copy {
+    font-size: 0.7rem;
+    letter-spacing: 1.2px;
+  }
 }
 /* === MEDIA QUERY: MÓVIL (≤768px) – SIN JS, SIN SUPERPOSICIÓN === */
 @media (max-width: 768px) {
