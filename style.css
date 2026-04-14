@@ -213,7 +213,7 @@ p {
   margin: 0;
   opacity: 0.9;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
-  padding-bottom: 20px;
+  padding-bottom: 50px;
 }
 
 /* === RAYAS FONDO === */
@@ -1178,5 +1178,182 @@ body.index .hero-img {
 @media (min-width: 769px) {
   body.index .hero {
     height: 95vh;
+  }
+}
+
+/* ============================================
+   SECCIÓN GALERÍA — agregar al final de style.css
+   ============================================ */
+
+.galeria-section {
+  padding: 60px 20px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.7);
+  border: 3px solid var(--colorSecundario);
+  border-radius: 15px;
+  margin: 4rem auto;
+  max-width: 1100px;
+  box-shadow: 0 0 20px rgba(133, 4, 111, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.galeria-title {
+  font-family: var(--fuenteTexto);
+  font-size: 3.1em;
+  color: var(--colorSecundario);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+  text-shadow: var(--textShadow);
+  position: relative;
+  z-index: 2;
+}
+
+.galeria-subtitle {
+  font-family: var(--fuentePagina);
+  font-size: 1.1em;
+  color: var(--colorSecundario);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  background-color: var(--colorPrimario);
+  opacity: 0.8;
+  margin-bottom: 40px;
+}
+
+/* === GRID ===
+   Desktop: foto destacada ocupa 2 columnas, las otras 4 una cada una.
+   Resultado visual: 1 grande + 4 pequeñas en dos filas. */
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto auto;
+  gap: 16px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Foto destacada: ocupa las 2 primeras columnas */
+.galeria-item--featured {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+/* === CADA FOTO === */
+.galeria-item {
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid var(--colorSecundario);
+  background: var(--colorPrimario);
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.galeria-item:hover {
+  transform: translateY(-6px);
+  border-color: var(--colorTexto);
+  box-shadow:
+    0 10px 28px rgba(190, 183, 30, 0.2),
+    0 0 20px rgba(133, 4, 111, 0.25);
+}
+
+.galeria-img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  filter: brightness(0.75) contrast(1.3) sepia(0.15);
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.galeria-item--featured .galeria-img {
+  height: 320px;
+}
+
+.galeria-item:hover .galeria-img {
+  filter: brightness(0.95) contrast(1.35) sepia(0.05);
+  transform: scale(1.03);
+}
+
+/* === CAPTION === */
+.galeria-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 14px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+  font-family: var(--fuentePagina);
+  font-size: 0.82em;
+  color: var(--colorSecundario);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: all 0.35s ease;
+}
+
+.galeria-item:hover .galeria-caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Rayas sutiles de fondo (consistente con resto del sitio) */
+.galeria-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0px,
+    transparent calc(var(--ancho-raya) - 3px),
+    rgba(255, 255, 255, 0.07) calc(var(--ancho-raya) - 3px),
+    rgba(255, 255, 255, 0.07) var(--ancho-raya)
+  );
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* === RESPONSIVE GALERÍA === */
+@media (max-width: 768px) {
+  .galeria-section {
+    padding: 40px 15px;
+    margin: 3rem 1rem;
+    border-width: 2px;
+  }
+
+  .galeria-title {
+    font-size: 2.2em;
+    letter-spacing: 2px;
+  }
+
+  .galeria-subtitle {
+    font-size: 1em;
+    margin-bottom: 30px;
+  }
+
+  /* En móvil: todas las fotos en una sola columna */
+  .galeria-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .galeria-item--featured {
+    grid-column: span 1;
+  }
+
+  .galeria-img,
+  .galeria-item--featured .galeria-img {
+    height: 220px;
+  }
+
+  /* Captions siempre visibles en móvil (sin hover) */
+  .galeria-caption {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
